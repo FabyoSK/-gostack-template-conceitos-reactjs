@@ -17,21 +17,22 @@ function App() {
     const response = await api.post('/repositories', {
       title:"Algo assim skks",
       url:"http://google.com",
-      techs:["react"]
+      techs:["react", "jjj"]
     })
     const repositorie = response.data
     setRepositories([...repositories, repositorie])
   }
 
   async function handleRemoveRepository(id) {
-    // TODO
+    // await api.delete('/repositories/:id', {
+    // })
   }
 
   return (
     <div>
       <ul data-testid="repository-list">
         <li>
-          {repositories.map(repositorie => <li key={repositorie.key}>{repositorie.title}</li>)}
+          {repositories.map(repositorie => <p key={repositorie.id}>{repositorie.title}</p>)}
 
           <button onClick={() => handleRemoveRepository(1)}>
             Remover
